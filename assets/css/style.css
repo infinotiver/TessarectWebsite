@@ -15,12 +15,13 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #6939e7;
+  background: black;
 }
+
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: cornflowerblue;
 }
 
 /* Handle on hover */
@@ -49,12 +50,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 ::-moz-selection { /* Code for Firefox */
-  color: navy;
+  color: black;
   background: rgb(255, 255, 255);
 }
 
 ::selection {
-  color: navy;
+  color: black;
   background: rgb(47, 250, 223);
 }
 /*--------------------------------------------------------------
@@ -67,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #050052;
+  background: black;
   width: 40px;
   height: 40px;
   border-radius: 40px;
@@ -81,59 +82,276 @@ h1, h2, h3, h4, h5, h6 {
   
 }
 .back-to-top:hover {
-  background: #050377;
+  background: black;
   color: #fff;
 }
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
 }
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #fff;
+/*=================================================================*/
+/*                      PRELOADER                              
+/*=================================================================*/
+.infinity {
+  width: 120px;
+  height: 60px;
+  position: relative;
 }
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #050377;
-  border-top-color: #e7e4fe;
-  border-radius: 50%;
+.infinity div,
+.infinity span {
+  position: absolute;
+}
+.infinity div {
+  top: 0;
+  left: 50%;
   width: 60px;
   height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
+  -webkit-animation: rotate 6.9s linear infinite;
+          animation: rotate 6.9s linear infinite;
+}
+.infinity div span {
+  left: -8px;
+  top: 50%;
+  margin: -8px 0 0 0;
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: #FF4C60;
+  -webkit-box-shadow: 2px 2px 8px rgba(255, 76, 96, 0.09);
+          box-shadow: 2px 2px 8px rgba(255, 76, 96, 0.09);
+  border-radius: 50%;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-animation: move 6.9s linear infinite;
+          animation: move 6.9s linear infinite;
+}
+.infinity div span:before, .infinity div span:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  top: 50%;
+  left: 50%;
+  margin: -7px 0 0 -7px;
+  -webkit-box-shadow: inherit;
+          box-shadow: inherit;
+}
+.infinity div span:before {
+  -webkit-animation: drop1 0.8s linear infinite;
+          animation: drop1 0.8s linear infinite;
+}
+.infinity div span:after {
+  -webkit-animation: drop2 0.8s linear infinite 0.4s;
+          animation: drop2 0.8s linear infinite 0.4s;
+}
+.infinity div:nth-child(2) {
+  -webkit-animation-delay: -2.3s;
+          animation-delay: -2.3s;
+}
+.infinity div:nth-child(2) span {
+  -webkit-animation-delay: -2.3s;
+          animation-delay: -2.3s;
+}
+.infinity div:nth-child(3) {
+  -webkit-animation-delay: -4.6s;
+          animation-delay: -4.6s;
+}
+.infinity div:nth-child(3) span {
+  -webkit-animation-delay: -4.6s;
+          animation-delay: -4.6s;
 }
 
-@-webkit-keyframes animate-preloader {
+.infinityChrome {
+  width: 128px;
+  height: 60px;
+}
+.infinityChrome div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #FF4C60;
+  -webkit-box-shadow: 2px 2px 8px rgba(255, 76, 96, 0.09);
+          box-shadow: 2px 2px 8px rgba(255, 76, 96, 0.09);
+  border-radius: 50%;
+  -webkit-animation: moveSvg 6.9s linear infinite;
+          animation: moveSvg 6.9s linear infinite;
+  -webkit-filter: url(style.css);
+  filter: url(style.css);
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+  offset-path: path("M64.3636364,29.4064278 C77.8909091,43.5203348 84.4363636,56 98.5454545,56 C112.654545,56 124,44.4117395 124,30.0006975 C124,15.5896556 112.654545,3.85282763 98.5454545,4.00139508 C84.4363636,4.14996252 79.2,14.6982509 66.4,29.4064278 C53.4545455,42.4803627 43.5636364,56 29.4545455,56 C15.3454545,56 4,44.4117395 4,30.0006975 C4,15.5896556 15.3454545,4.00139508 29.4545455,4.00139508 C43.5636364,4.00139508 53.1636364,17.8181672 64.3636364,29.4064278 Z");
+}
+.infinityChrome div:before, .infinityChrome div:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  top: 50%;
+  left: 50%;
+  margin: -7px 0 0 -7px;
+  -webkit-box-shadow: inherit;
+          box-shadow: inherit;
+}
+.infinityChrome div:before {
+  -webkit-animation: drop1 0.8s linear infinite;
+          animation: drop1 0.8s linear infinite;
+}
+.infinityChrome div:after {
+  -webkit-animation: drop2 0.8s linear infinite 0.4s;
+          animation: drop2 0.8s linear infinite 0.4s;
+}
+.infinityChrome div:nth-child(2) {
+  -webkit-animation-delay: -2.3s;
+          animation-delay: -2.3s;
+}
+.infinityChrome div:nth-child(3) {
+  -webkit-animation-delay: -4.6s;
+          animation-delay: -4.6s;
+}
+
+@-webkit-keyframes moveSvg {
   0% {
-    transform: rotate(0deg);
+    offset-distance: 0%;
+  }
+  25% {
+    background: #6C6CE5;
+  }
+  75% {
+    background: #FFD15C;
   }
   100% {
-    transform: rotate(360deg);
+    offset-distance: 100%;
   }
 }
 
-@keyframes animate-preloader {
+@keyframes moveSvg {
   0% {
-    transform: rotate(0deg);
+    offset-distance: 0%;
+  }
+  25% {
+    background: #6C6CE5;
+  }
+  75% {
+    background: #FFD15C;
   }
   100% {
-    transform: rotate(360deg);
+    offset-distance: 100%;
   }
 }
+@-webkit-keyframes rotate {
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    margin-left: 0;
+  }
+  50.0001%, 100% {
+    margin-left: -60px;
+  }
+}
+@keyframes rotate {
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    margin-left: 0;
+  }
+  50.0001%, 100% {
+    margin-left: -60px;
+  }
+}
+@-webkit-keyframes move {
+  0%, 50% {
+    left: -8px;
+  }
+  25% {
+    background: #FFD15C;
+  }
+  75% {
+    background: #6C6CE5;
+  }
+  50.0001%, 100% {
+    left: auto;
+    right: -8px;
+  }
+}
+@keyframes move {
+  0%, 50% {
+    left: -8px;
+  }
+  25% {
+    background: #FFD15C;
+  }
+  75% {
+    background: #6C6CE5;
+  }
+  50.0001%, 100% {
+    left: auto;
+    right: -8px;
+  }
+}
+@-webkit-keyframes drop1 {
+  100% {
+    -webkit-transform: translate(32px, 8px) scale(0);
+            transform: translate(32px, 8px) scale(0);
+  }
+}
+@keyframes drop1 {
+  100% {
+    -webkit-transform: translate(32px, 8px) scale(0);
+            transform: translate(32px, 8px) scale(0);
+  }
+}
+@-webkit-keyframes drop2 {
+  0% {
+    -webkit-transform: translate(0, 0) scale(0.9);
+            transform: translate(0, 0) scale(0.9);
+  }
+  100% {
+    -webkit-transform: translate(32px, -8px) scale(0);
+            transform: translate(32px, -8px) scale(0);
+  }
+}
+@keyframes drop2 {
+  0% {
+    -webkit-transform: translate(0, 0) scale(0.9);
+            transform: translate(0, 0) scale(0.9);
+  }
+  100% {
+    -webkit-transform: translate(32px, -8px) scale(0);
+            transform: translate(32px, -8px) scale(0);
+  }
+}
+#preloader {
+  background: #353353;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 1031;
+}
+#preloader .outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+#preloader.light {
+  background: #F9F9FF;
+}
+
+.goo-outer {
+  display: none;
+}
+
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -272,7 +490,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #050377;
+  color: black;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -364,7 +582,7 @@ h1, h2, h3, h4, h5, h6 {
   visibility: hidden;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #050377;
+  color: black;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -390,7 +608,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #050377;
+  color: black;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
@@ -402,7 +620,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../img/hero-bg.jpg") center center no-repeat;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 0%, #050377 100%), url("../img/hero-bg.jpg") center center no-repeat;
   background-size: cover;
 }
 #hero .container, #hero .container-fluid {
@@ -435,7 +653,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero .btn-get-started:hover {
   background: #fff;
-  color: #050377;
+  color: black;
 }
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
@@ -510,15 +728,18 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 100px 0;
   overflow: hidden;
+  color: #2c4964
 }
 
 .section-bg {
-  background-color: #f9f8ff;
+  background-color:#0C090A;
 }
 
 .section-title {
   text-align: center;
   padding-bottom: 30px;
+  color: white
+  
 }
 .section-title h2 {
   font-size: 32px;
@@ -527,6 +748,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+
 }
 .section-title h2::after {
   content: "";
@@ -534,7 +756,7 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: #050377;
+  background: black;
   bottom: 0;
   left: calc(50% - 25px);
 }
@@ -547,6 +769,7 @@ section {
 --------------------------------------------------------------*/
 .about {
   padding: 120px 0;
+  color: #353353
 }
 .about .content h3 {
   font-weight: 600;
@@ -563,7 +786,7 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #050377;
+  color: black;
 }
 .about .content p:last-child {
   margin-bottom: 0;
@@ -582,7 +805,7 @@ section {
   position: relative;
 }
 .about .content .read-more:hover {
-  background: linear-gradient(180deg, #050377 0%, #7b27d8 100%);
+  background: linear-gradient(180deg, #050377 0%, #42008d 100%);
 }
 .about .content .read-more i {
   font-size: 22px;
@@ -595,7 +818,7 @@ section {
 # Counts
 --------------------------------------------------------------*/
 .counts {
-  background: linear-gradient(90deg, rgba(88, 70, 249, 0.5) 0%, rgba(123, 39, 216, 0.5) 100%), url("../img/counts-bg.png") center center no-repeat;
+  background: linear-gradient(90deg, #050377 0%, black 100%), url("../img/counts-bg.png") center center no-repeat;
   padding: 80px 0 60px 0;
 }
 .counts .counters span {
@@ -620,6 +843,7 @@ section {
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
+  border-radius: 5%;
 }
 .services .icon-box .icon {
   margin: 0 auto;
@@ -729,7 +953,7 @@ section {
 .features .icon-box i {
   font-size: 48px;
   float: left;
-  color: #050377;
+  color: black;
 }
 .features .icon-box p {
   font-size: 15px;
@@ -808,10 +1032,10 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #050377;
+  border: 1px solid black;
 }
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #050377;
+  background-color: black;
 }
 @media (max-width: 767px) {
   .testimonials {
@@ -819,168 +1043,6 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
-.portfolio #portfolio-flters {
-  padding: 0;
-  margin: 0 auto 25px auto;
-  list-style: none;
-  text-align: center;
-  border-radius: 50px;
-  padding: 2px 15px;
-}
-.portfolio #portfolio-flters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #444444;
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-  border-radius: 5px;
-  font-family: "Poppins", sans-serif;
-}
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
-  color: #fff;
-  background: #050377;
-}
-.portfolio #portfolio-flters li:last-child {
-  margin-right: 0;
-}
-.portfolio .portfolio-wrap {
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: rgba(88, 70, 249, 0.8);
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  top: 30px;
-  bottom: 30px;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
-.portfolio .portfolio-wrap .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-}
-.portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 600;
-}
-.portfolio .portfolio-wrap .portfolio-info p {
-  color: #ffffff;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-.portfolio .portfolio-wrap .portfolio-links {
-  opacity: 0;
-  left: 0;
-  right: 0;
-  bottom: 10%;
-  text-align: center;
-  z-index: 3;
-  position: absolute;
-  transition: all ease-in-out 0.3s;
-}
-.portfolio .portfolio-wrap .portfolio-links a {
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #fff;
-}
-.portfolio .portfolio-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-}
-.portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
-  top: calc(50% - 48px);
-}
-.portfolio .portfolio-wrap:hover .portfolio-links {
-  opacity: 1;
-  bottom: calc(50% - 50px);
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 40px;
-}
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #050377;
-}
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #050377;
-}
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(44, 73, 100, 0.08);
-}
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-.portfolio-details .portfolio-info ul li + li {
-  margin-top: 10px;
-}
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-.portfolio-details .portfolio-description p {
-  padding: 0;
-}
 
 /*--------------------------------------------------------------
 # Pricing
@@ -1005,7 +1067,7 @@ section {
 }
 .pricing h4 {
   font-size: 36px;
-  color: #050377;
+  color: black;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   margin-bottom: 20px;
@@ -1032,7 +1094,7 @@ section {
   padding-bottom: 16px;
 }
 .pricing ul i {
-  color: #050377;
+  color: black;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -1047,7 +1109,7 @@ section {
   text-align: center;
 }
 .pricing .btn-buy {
-  background: linear-gradient(42deg, #050377 0%, #7b27d8 100%);
+  background: linear-gradient(42deg, black 0%, #7b27d8 100%);
   display: inline-block;
   padding: 10px 35px;
   border-radius: 4px;
@@ -1060,11 +1122,11 @@ section {
   transition: 0.3s;
 }
 .pricing .btn-buy:hover {
-  background: linear-gradient(180deg, #050377 0%, #7b27d8 100%);
+  background: linear-gradient(180deg, black 0%, #7b27d8 100%);
 }
 .pricing .featured h3 {
   color: #fff;
-  background: #050377;
+  background: black;
 }
 .pricing .advanced {
   width: 200px;
@@ -1075,7 +1137,7 @@ section {
   z-index: 1;
   font-size: 14px;
   padding: 1px 0 3px 0;
-  background: #050377;
+  background: black;
   color: #fff;
 }
 
@@ -1083,7 +1145,7 @@ section {
 # Frequently Asked Questions
 --------------------------------------------------------------*/
 .faq {
-  background: linear-gradient(42deg, #050377 0%, #7b27d8 100%);
+  background: linear-gradient(42deg, #050377 0%, #14d8d8 100%);
 }
 .faq .section-title h2, .faq .section-title p {
   color: #fff;
@@ -1103,7 +1165,7 @@ section {
 }
 .faq .faq-list li {
   padding: 30px;
-  background: #fff;
+  background: black;
   border-radius: 5px;
   position: relative;
 }
@@ -1123,7 +1185,7 @@ section {
   position: absolute;
   right: 0;
   left: 20px;
-  color: #8577fb;
+  color: goldenrod;
 }
 .faq .faq-list .icon-show, .faq .faq-list .icon-close {
   font-size: 24px;
@@ -1134,15 +1196,16 @@ section {
 .faq .faq-list p {
   margin-bottom: 0;
   padding: 10px 0 0 0;
+  color: white
 }
 .faq .faq-list .icon-show {
   display: none;
 }
 .faq .faq-list a.collapsed {
-  color: #2c4964;
+  color: seashell;
 }
 .faq .faq-list a.collapsed:hover {
-  color: #050377;
+  color: grey;
 }
 .faq .faq-list a.collapsed .icon-show {
   display: inline-block;
@@ -1168,7 +1231,7 @@ section {
 }
 .contact .info-box i {
   font-size: 32px;
-  color: #050377;
+  color: black;
   border-radius: 50%;
   padding: 8px;
 }
@@ -1232,7 +1295,7 @@ section {
   font-size: 14px;
 }
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-  border-color: #050377;
+  border-color: black;
 }
 .contact .php-email-form input {
   padding: 10px 15px;
@@ -1241,7 +1304,7 @@ section {
   padding: 12px 15px;
 }
 .contact .php-email-form button[type=submit] {
-  background: #050377;
+  background: black;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1321,7 +1384,7 @@ section {
 #footer {
   color: #fff;
   font-size: 14px;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../img/hero-bg.jpg") center center no-repeat;
+  background: linear-gradient(42deg, #2712db 0%, #023f85 100%), url("../img/hero-bg.jpg") center center no-repeat;
   background-size: cover;
 }
 #footer .footer-top {
@@ -1385,7 +1448,7 @@ section {
 }
 
 #footer .footer-newsletter form input[type=submit]:hover {
-  background: #050377;
+  background: black;
 }
 #footer .copyright-wrap {
   border-top: 1px solid #8577fb;
